@@ -1,0 +1,26 @@
+<h1>Template Driven Form - Sign up</h1>
+<!-- reference the specific form -->
+<!-- ngForm coming from FormsModule that we imported in app.module.ts -->
+<form (ngSubmit)="onSubmit(signup)" #signup="ngForm">
+  <div>
+    <label>Username: </label>
+    <input name="username" [(ngModel)]="signup.username"
+     type="text" required />
+     <!-- signup.invalid -->
+     <p *ngIf="signup.invalid && signup.touched">Username is required!</p>
+  </div>
+  <div>
+    <label>Password: </label>
+    <input name="password" type="password" 
+    [(ngModel)]="signup.password" />
+  </div>
+  <button type="submit" [disabled] = "signup.invalid">submit</button>
+</form>
+<!-- <form (ngSubmit)="onSubmit()" #heroForm="ngForm"></form> -->
+
+<!-- <input type="text" class="form-control" id="name"
+       required
+       [(ngModel)]="model.name" name="name"> -->
+
+<p>Username: {{ username }}</p>
+<p>password: {{ password }}</p>

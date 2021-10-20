@@ -1,0 +1,29 @@
+<h1>Reactive Form - Log In</h1>
+<form [formGroup] = loginForm (ngSubmit)="onSubmit()" >
+    <div>
+        <label>Email</label>
+        <input class="email" type="text" formControlName="email"/>
+    </div>
+    <div *ngIf="loginForm.invalid">email is required</div>
+    <div>
+        <label>Password</label>
+        <input class="password" type="password" formControlName="password"/>
+    </div>
+    <div>
+        <button type="submit" [disabled] = "loginForm.invalid">Log in</button>
+    </div>
+</form>
+
+
+<p>email: {{email}}</p>
+<p>password: {{password}}</p>
+
+<!-- <form [formGroup]="profileForm">
+
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName">
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+
+</form> -->
